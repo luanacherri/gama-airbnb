@@ -1,5 +1,5 @@
 const apiUrl = "https://api.sheety.co/30b6e400-9023-4a15-8e6c-16aa4e3b1e72";
-const cardsContainer = document.querySelector("#cards");
+const cardsContainer = document.querySelector("#card");
 let data = [];
 
 async function fetchCards() {
@@ -17,23 +17,20 @@ function renderCard(card){
     div.style.width = "20rem";
     div.style.margin = "2rem";
     div.className = "card";
-    div.innerHTML = `
-
-    <img src="${card.photo}"  class="card-img-top" alt="${card.name}" />
-    <div class="card-body">
-        <h4 class="card-title">${card.name}</h4>
-        <p class="card-text">
-            Tipo: ${card.property_type}
-        </p>
-        <p class="card-text">
-            Preço: R$ ${card.price},00
-        </p>        
-        </div>
-
+    div.innerHTML = `    
+            <img src="${card.photo}"  class="card-img-top" alt="${card.name}" />
+            <div class="card-body">
+                <h4 class="card-title">${card.name}</h4>
+                <p class="card-text">
+                    Tipo: ${card.property_type}
+                </p>
+                <p class="card-text">
+                    Preço: R$ ${card.price},00
+                </p>        
+            </div>     
         `;
 
-        cardsContainer.appendChild(div);
-              
+        cardsContainer.appendChild(div);              
 }
 
 async function main(){
